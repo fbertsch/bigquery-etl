@@ -117,7 +117,7 @@ WITH
   WHERE
     submission_date = DATE_SUB(@submission_date, INTERVAL 1 DAY)
     -- Filter out rows from yesterday that have now fallen outside the 365-day window.
-    AND udf_combine_adjacent_days_bytes(days_seen_bytes, udf_bool_to_bytes(FALSE)) != udf_zeroed_365_days_bytes())
+    AND BIT_COUNT(udf_shift_bytes_one_day(days_seen_bytes)) > 0
 
 SELECT
   @submission_date AS submission_date,
