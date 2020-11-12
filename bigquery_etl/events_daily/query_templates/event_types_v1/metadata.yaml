@@ -1,14 +1,15 @@
 ---
-friendly_name: 'org_mozilla_firefox Event Types'
+friendly_name: '{{ app_id }} Event Types'
 description: >
   Retrieve the set of [events, event_properties]
   and record them in a table.
 owners:
   - frank@mozilla.com
 labels:
-  application: org_mozilla_firefox
+  application: {{ app_id }}
   incremental: false
   schedule: daily
 scheduling:
-  dag_name: bqetl_fenix_event_rollup
+  dag_name: {{ dag_name }}
   depends_on_past: true
+
