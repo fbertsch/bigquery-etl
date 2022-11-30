@@ -118,21 +118,24 @@ clients AS (
   SELECT
     submission_date,
     client_id,
-    CAST(
-      user_pref_browser_urlbar_quicksuggest_data_collection_enabled = "true" AS bool
+    COALESCE(
+      user_pref_browser_urlbar_quicksuggest_data_collection_enabled = "true",
+      FALSE
     ) AS user_pref_data_collection_enabled,
-    CAST(
-      user_pref_browser_urlbar_suggest_quicksuggest_sponsored = "true" AS bool
+    COALESCE(
+      user_pref_browser_urlbar_suggest_quicksuggest_sponsored = "true",
+      FALSE
     ) AS user_pref_sponsored_suggestions_enabled,
-    CAST(
-      user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored = "true" AS bool
+    COALESCE(
+      user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored = "true",
+      FALSE
     ) AS user_pref_firefox_suggest_enabled,
     browser_version_info,
+    country,
     experiments,
     locale,
     normalized_channel,
     normalized_os_version,
-    profile_age_in_days,
     sample_id,
   FROM
     `moz-fx-data-shared-prod.telemetry.clients_daily`
@@ -140,7 +143,7 @@ clients AS (
     submission_date = @submission_date
   --Suggest is only available for the following clients:
     AND country = "US"
-    AND locale LIKE "en*"
+    AND locale LIKE "en%"
     AND browser_version_info.major_version >= 92
     AND browser_version_info.version NOT IN ('92', '92.', '92.0', '92.0.0')
 )
