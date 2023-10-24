@@ -1,0 +1,10 @@
+friendly_name: Glean Dictionary
+description: |-
+  Views on data from glean_dictionary
+dataset_base_acl: view
+user_facing: true
+labels: {}
+workgroup_access:
+- role: roles/bigquery.dataViewer
+  members:
+  - workgroup:mozilla-confidential

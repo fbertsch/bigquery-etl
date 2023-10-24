@@ -1,0 +1,10 @@
+fields:
+- name: id
+  type: INTEGER
+  mode: NULLABLE
+- name: fxa_uid
+  type: STRING
+  mode: NULLABLE
+- name: created_at
+  type: TIMESTAMP
+  mode: NULLABLE

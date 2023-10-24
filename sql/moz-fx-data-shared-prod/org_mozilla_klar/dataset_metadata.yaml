@@ -1,0 +1,10 @@
+friendly_name: Org Mozilla Klar
+description: |-
+  Views on data from org_mozilla_klar
+dataset_base_acl: view
+user_facing: true
+labels: {}
+workgroup_access:
+- role: roles/bigquery.dataViewer
+  members:
+  - workgroup:mozilla-confidential

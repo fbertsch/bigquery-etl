@@ -1,0 +1,22 @@
+fields:
+- name: id
+  type: INTEGER
+  mode: NULLABLE
+- name: user_id
+  type: INTEGER
+  mode: NULLABLE
+- name: is_active
+  type: BOOLEAN
+  mode: NULLABLE
+- name: created_at
+  type: TIMESTAMP
+  mode: NULLABLE
+- name: ended_at
+  type: TIMESTAMP
+  mode: NULLABLE
+- name: updated_at
+  type: TIMESTAMP
+  mode: NULLABLE
+- name: type
+  type: STRING
+  mode: NULLABLE

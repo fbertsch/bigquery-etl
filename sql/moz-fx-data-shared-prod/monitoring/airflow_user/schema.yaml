@@ -1,0 +1,17 @@
+fields:
+- name: user_role
+  type: STRING
+  mode: NULLABLE
+- name: user_id
+  type: INTEGER
+  mode: NULLABLE
+  description: Airflow user id
+- name: created_on
+  type: DATETIME
+  mode: NULLABLE
+- name: changed_on
+  type: DATETIME
+  mode: NULLABLE
+- name: last_login
+  type: DATETIME
+  mode: NULLABLE
